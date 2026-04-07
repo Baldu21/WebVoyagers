@@ -24,11 +24,11 @@
             z-index: 1;
         }
 
-        /* Menu a tre linee (Hamburger) */
+        /* Menu a tre linee (Hamburger) SPOSTATO A DESTRA */
         .menu-icon {
             position: fixed;
             top: 20px;
-            left: 20px;
+            right: 20px; /* Cambiato da left a right */
             z-index: 100;
             cursor: pointer;
             display: flex;
@@ -44,11 +44,11 @@
             transition: 0.3s;
         }
 
-        /* Casella verticale del menu */
+        /* Casella verticale del menu SPOSTATA A DESTRA */
         .side-menu {
             position: fixed;
             top: 0;
-            left: -250px; /* Nascosto a sinistra */
+            right: -250px; /* Nascosto fuori a destra */
             width: 200px;
             height: 100%;
             background: rgba(0, 0, 0, 0.9);
@@ -56,12 +56,12 @@
             transition: 0.3s;
             padding-top: 80px;
             padding-left: 20px;
-            border-right: 1px solid #444;
+            border-left: 1px solid #444; /* Bordo a sinistra della casella */
             pointer-events: auto;
         }
 
         .side-menu.active {
-            left: 0;
+            right: 0; /* Entra da destra */
         }
 
         .side-menu a {
@@ -86,7 +86,7 @@
         h2 {
             font-size: 50px;
             margin-top: 30px;
-            text-align: center; /* Titolo resta al centro */
+            text-align: center; /* Titolo al centro */
             text-shadow: 0 0 15px rgba(255,255,255,0.5);
             pointer-events: auto;
         }
@@ -94,9 +94,9 @@
         form {
             margin-top: auto;
             margin-bottom: 50px;
-            margin-left: 40px; /* Testi a sinistra */
+            margin-left: 40px; /* Scritte a sinistra */
             padding: 20px;
-            text-align: left; /* Allineamento a sinistra */
+            text-align: left;
             pointer-events: auto;
             max-width: 400px;
         }
@@ -349,12 +349,12 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 
     <script>
-        // Funzione per il menu laterale
+        // Funzione per il menu laterale a destra
         function toggleMenu() {
             document.getElementById('sideMenu').classList.toggle('active');
         }
 
-        // 3D Setup
+        // Setup Universo e Terra 3D
         let scene, camera, renderer, earth, controls;
 
         function init() {
@@ -376,17 +376,17 @@
             sunLight.position.set(5, 3, 5);
             scene.add(sunLight);
 
-            // Stelle
+            // Campo stellato
             const starsGeometry = new THREE.BufferGeometry();
             const starsMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.1 });
             const starsVertices = [];
-            for (let i = 0; i < 10000; i++) {
+            for (let i = 0; i < 12000; i++) {
                 starsVertices.push((Math.random() - 0.5) * 2000, (Math.random() - 0.5) * 2000, (Math.random() - 0.5) * 2000);
             }
             starsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(starsVertices, 3));
             scene.add(new THREE.Points(starsGeometry, starsMaterial));
 
-            // Terra
+            // Pianeta Terra
             const loader = new THREE.TextureLoader();
             const texture = loader.load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/land_ocean_ice_cloud_2048.jpg');
             const geometry = new THREE.SphereGeometry(1, 64, 64);
@@ -403,7 +403,7 @@
 
         function animate() {
             requestAnimationFrame(animate);
-            earth.rotation.y += 0.001;
+            earth.rotation.y += 0.0012; // Rotazione naturale
             controls.update();
             renderer.render(scene, camera);
         }
