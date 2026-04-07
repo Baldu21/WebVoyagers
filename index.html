@@ -3,24 +3,66 @@
   <head>
     <meta cahrset = "UTF-8">
     <meta name = "viewpoint" content = "width=device-wodth, initial-scale = 1.0">
+    <style>
     <title> WebVoyagers </title>  
+    h2{
+        text-aling: center;
+      }
+    </style>
   </head>
 
   <body>
+    /*creiamo le tre linette*/
     <div class = "menu_container">
       <div class = "hamburger">&#9776;</div>
-      <div>
           <div class = "menu-dropdown">
             <a href= "#">Home</a>
             <a href= "#">Viaggi</a>
            <a href= "#">Informazioni utili</a>
           </div>
     </div>
+    /*spostiamo il contenitore a destra*/
     
-    <style>
-      h2{
-        text-aling: center;
+    <style> .menu_container{
+        position: absolute; 
+        top: 10px;
+        right: 20px;
+        display: inline-block;
+        z-index: 1000; 
+  }
+    /*stile delle tre linette*/
+      .hambuger{
+          front-size: 30px;
+          cursor: pointer;
+          text-align: right;
       }
+      /*serve per nascondere il menu */
+      .menu-dropdown{
+          display: none;
+          position: absolute;
+          right: 0;
+          background-color: #ffffff;
+          min-width: 160px;
+          box-shadow: 0px 8px 16px rgba(0,0,0,0,2);
+          border-radius: 4px;
+          z-index: 1;
+      }
+      /*viene mostrato il menu quando si clicca sulle tre lineette */
+      .menu-container: hover .menu-dropdown{
+        display: block;
+      }
+      .menu-dropdown a{
+        color: black;
+        pedding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        font-family: sans-serif;
+        border-bottom: 1px solid #eeee;
+      }
+      .menu-dropdown a:hover{
+          background-color: #f1f1f1;
+      }
+     
     </style>
    
         <label for = "frase"> Scopri le destinazioni più uniche e remote del mondo. </label>
