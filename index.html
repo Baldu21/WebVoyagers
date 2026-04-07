@@ -3,177 +3,168 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wanderlust - Agenzia di Viaggi Interattiva</title>
-    <style>
-        /* CSS: Stili per rendere la pagina accattivante e moderna */
-        :root {
-            --primary-color: #0056b3;
-            --accent-color: #ff9800;
-            --text-color: #333;
-            --bg-color: #f8f9fa;
-        
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-        }
-
-        /* Navigazione */
-        header {
-            background-color: white;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        header h2 {
-            color: var(--primary-color);
-            margin: 0;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--text-color);
-            margin-left: 20px;
-            font-weight: 500;
-        }
-
-        nav a:hover {
-            color: var(--primary-color);
-        }
-
-        /* Sezione Eroe (Hero) - L'impatto visivo principale */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?q=80&w=1600&auto=format&fit=crop') center/cover;
-            height: 70vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: white;
-            padding: 0 20px;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            max-width: 600px;
-        }
-
-        /* Box di interazione per l'itinerario */
-        .interactive-box {
-            background: rgba(255, 255, 255, 0.95);
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .interactive-box select {
-            padding: 12px 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 1rem;
-            outline: none;
-        }
-
-        .interactive-box button {
-            background-color: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s ease;
-        }
-
-        .interactive-box button:hover {
-            background-color: #e68a00;
-        }
-
-        /* Sezione Destinazioni */
-        .destinations-section {
-            padding: 60px 5%;
-            text-align: center;
-        }
-
-        .cards-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            width: 300px;
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 20px;
-        }
-
-        .card h3 {
-            margin: 0 0 10px 0;
-            color: var(--primary-color);
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--text-color);
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-        }
-    </style>
+    <title>WebVoyagers</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <h2>Wanderlust</h2>
-        <nav>
-            <a href="#">Home</a>
-            <a href="#">Destinazioni</a>
-            <a href="#">Chi Siamo</a>
-            <a href="#">Contatti</a>
-        </nav>
-    </header>
+    <nav class="navbar">
+        <div class="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
 
-    <section class="hero">
-        <h1>Esplora il Mondo, a Modo Tuo.</h1>
-        <p>Generiamo automaticamente itinerari su misura per ottimizzare la tua esperienza di viaggio.</p>
+    <main class="hero">
+        <div class="sidebar-text">
+            <p>Scopri le destinazioni più uniche e remote del globo. Raggiungi i confini che altri non osano esplorare.</p>
+            <p class="cta">Scegli dove andare</p>
+        </div>
+
+        <div class="globe-container">
+            <h1 class="main-title">WebVoyagers</h1>
+            <div class="globe-wrapper">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/2/22/Earth_Western_Hemisphere_transparent_background.png" alt="Pianeta Terra" class="globe-img">
+                <div class="globe-glow"></div>
+            </div>
+        </div>
+
+        <div class="right-icons">
+            <div class="icon">🔍</div>
+            <div class="icon">👤</div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #050505;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Navigazione */
+.navbar {
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    z-index: 10;
+}
+
+.menu-icon span {
+    display: block;
+    width: 30px;
+    height: 2px;
+    background: white;
+    margin: 6px 0;
+}
+
+/* Layout Principale */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    padding: 0 5%;
+}
+
+/* Testo a sinistra */
+.sidebar-text {
+    max-width: 250px;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #cccccc;
+}
+
+.cta {
+    margin-top: 20px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Sezione Centrale Globo */
+.globe-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.main-title {
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 40px; /* Spazio per non toccare il pianeta */
+    background: linear-gradient(90deg, #ff6ed4, #48e2c0);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 0 10px rgba(72, 226, 192, 0.3));
+}
+
+.globe-wrapper {
+    position: relative;
+    width: 500px;
+    height: 500px;
+}
+
+.globe-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 2;
+    position: relative;
+    filter: brightness(1.1) contrast(1.1);
+}
+
+.globe-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 95%;
+    height: 95%;
+    border-radius: 50%;
+    box-shadow: 0 0 60px 20px rgba(99, 102, 241, 0.4);
+    z-index: 1;
+}
+
+/* Icone a destra */
+.right-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 1.5rem;
+}
+
+.icon {
+    cursor: pointer;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.icon:hover {
+    opacity: 1;
+}
+document.addEventListener('mousemove', (e) => {
+    const globe = document.querySelector('.globe-wrapper');
+    const title = document.querySelector('.main-title');
+    
+    // Calcola lo spostamento in base al mouse
+    const x = (window.innerWidth / 2 - e.pageX) / 50;
+    const y = (window.innerHeight / 2 - e.pageY) / 50;
+
+    // Applica una leggera rotazione/traslazione
+    globe.style.transform = `translate(${x}px, ${y}px)`;
+    title.style.transform = `translate(${-x / 2}px, ${-y / 2}px)`;
+});
