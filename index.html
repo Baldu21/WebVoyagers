@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WebVoyagers - Mondo Vivo</title>
+    <title>WebVoyagers - Sette Meraviglie</title>
     <style>
         * {
             margin: 0;
@@ -13,150 +13,135 @@
 
         body, html {
             height: 100%;
-            margin: 0;
-            font-family: 'Segoe UI', sans-serif;
-            background: #000;
+            width: 100%;
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
             overflow: hidden;
+            color: white;
         }
 
-        /* SFONDO TOTALE */
-        .background-container {
+        /* SFONDO DELLE SETTE MERAVIGLIE */
+        .background-image {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: url('https://i.ibb.co/b9M5Gf/wonders-base.png') no-repeat center center;
+            /* Inserisco l'immagine delle sette meraviglie */
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), 
+                        url('https://images.unsplash.com/photo-1599946347371-68eb71b16afc?auto=format&fit=crop&q=80&w=2000');
             background-size: cover;
-            transform: scale(1.1); /* Leggero zoom per permettere il movimento */
+            background-position: center;
+            transform: scale(1.1); /* Necessario per l'effetto movimento */
             transition: transform 0.1s ease-out;
         }
 
-        /* ANIMAZIONE PERSONE E ANIMALI (Simulazione con particelle/ombre vive) */
-        .living-element {
+        /* NAVBAR / MENU BURGER */
+        .navbar {
             position: absolute;
-            pointer-events: none;
-            filter: brightness(1.2);
-        }
-
-        /* Cammelli in Egitto (Sinistra Alto) */
-        .cammelli {
-            top: 30%;
-            left: 10%;
-            width: 150px;
-            height: 50px;
-            background: rgba(255,255,255,0.1); /* Area invisibile che "pulsa" */
-            animation: walk 20s infinite linear;
-        }
-
-        /* Folla al Colosseo (Centro) */
-        .folla {
-            bottom: 15%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 300px;
-            height: 40px;
-            animation: crowd-movement 5s infinite alternate ease-in-out;
-        }
-
-        @keyframes walk {
-            0% { transform: translateX(0) translateY(0); }
-            50% { transform: translateX(15px) translateY(-5px); }
-            100% { transform: translateX(0) translateY(0); }
-        }
-
-        @keyframes crowd-movement {
-            from { filter: blur(0px) brightness(1); }
-            to { filter: blur(1px) brightness(1.3); transform: translateX(-52%) scale(1.02); }
-        }
-
-        /* OVERLAY TESTUALE */
-        .content {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: rgba(0, 0, 0, 0.2); /* Scurisce leggermente lo sfondo per leggere meglio */
-        }
-
-        .main-title {
-            font-size: 7rem;
-            font-weight: 900;
-            background: linear-gradient(90deg, #e93db3, #46e2be);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.8));
+            top: 30px;
+            right: 40px;
+            cursor: pointer;
             z-index: 10;
         }
 
-        .sidebar-description {
-            position: absolute;
-            left: 5%;
-            bottom: 10%;
-            max-width: 300px;
-            color: #fff;
-            text-shadow: 2px 2px 10px rgba(0,0,0,1);
-            text-align: left;
-        }
-
-        .cta {
-            margin-top: 15px;
-            font-weight: bold;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-
-        /* Navbar a destra */
-        .nav-right {
-            position: absolute;
-            top: 40px;
-            right: 50px;
-            display: flex;
-            gap: 20px;
-        }
-
-        .menu-burger {
-            width: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-        }
-
-        .menu-burger span {
-            height: 2px;
-            width: 100%;
+        .burger span {
+            display: block;
+            width: 35px;
+            height: 3px;
             background: white;
+            margin: 6px 0;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        /* TITOLO CENTRALE IN ALTO */
+        .header {
+            position: absolute;
+            top: 50px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 5rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            text-shadow: 0 0 20px rgba(0,0,0,0.8);
+            /* Gradiente WebVoyagers */
+            background: white;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: white; /* In questo screen è bianco pieno */
+        }
+
+        /* CONTENUTO IN BASSO A SINISTRA */
+        .main-content {
+            position: absolute;
+            bottom: 80px;
+            left: 50px;
+            max-width: 450px;
+        }
+
+        .main-content p {
+            font-size: 1.2rem;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,1);
+        }
+
+        /* SELETTORE PAESE */
+        .selector-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .selector-container label {
+            font-size: 1.3rem;
+            text-shadow: 2px 2px 5px rgba(0,0,0,1);
+        }
+
+        select {
+            background: rgba(40, 40, 40, 0.9);
+            color: white;
+            padding: 12px 20px;
+            border: 1px solid #555;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            width: 250px;
+            cursor: pointer;
+            outline: none;
         }
 
     </style>
 </head>
 <body>
 
-    <div class="background-container" id="bg">
-        <div class="living-element cammelli"></div>
-        <div class="living-element folla"></div>
-    </div>
+    <div class="background-image" id="bg"></div>
 
-    <div class="nav-right">
-        <div style="font-size: 1.5rem; cursor: pointer;">🔍</div>
-        <div style="font-size: 1.5rem; cursor: pointer;">👤</div>
-        <div class="menu-burger">
+    <div class="navbar">
+        <div class="burger">
             <span></span><span></span><span></span>
         </div>
     </div>
 
-    <div class="content">
-        <h1 class="main-title" id="title">WebVoyagers</h1>
+    <div class="header">
+        <h1 id="title">WebVoyagers</h1>
+    </div>
+
+    <div class="main-content">
+        <p>Scopri le destinazioni più uniche e remote del mondo<br>
+        Raggiungi i confini che altri non osano esplorare</p>
         
-        <div class="sidebar-description">
-            <p>Scopri le destinazioni più uniche e remote del globo. Raggiungi i confini che altri non osano esplorare.</p>
-            <p class="cta">Scegli dove andare</p>
+        <div class="selector-container">
+            <label>Paese:</label>
+            <select>
+                <option>Arabia Saudita</option>
+                <option>Italia</option>
+                <option>Egitto</option>
+                <option>India</option>
+                <option>Messico</option>
+            </select>
         </div>
     </div>
 
@@ -164,17 +149,18 @@
         const bg = document.getElementById('bg');
         const title = document.getElementById('title');
 
+        // Effetto "Vivo": Lo sfondo e il titolo si muovono col mouse
         document.addEventListener('mousemove', (e) => {
-            // Effetto parallasse su tutto lo schermo
-            const x = (window.innerWidth / 2 - e.pageX) / 40;
-            const y = (window.innerHeight / 2 - e.pageY) / 40;
+            const x = (window.innerWidth / 2 - e.pageX) / 50;
+            const y = (window.innerHeight / 2 - e.pageY) / 50;
 
-            // Muove lo sfondo in direzione opposta al mouse
+            // Muove lo sfondo in modo leggero
             bg.style.transform = `scale(1.1) translate(${x}px, ${y}px)`;
             
-            // Muove il titolo in modo più accentuato
-            title.style.transform = `translate(${-x * 1.5}px, ${-y * 1.5}px)`;
+            // Muove il titolo per creare parallasse
+            title.style.transform = `translate(${-x}px, ${-y}px)`;
         });
     </script>
+
 </body>
 </html>
